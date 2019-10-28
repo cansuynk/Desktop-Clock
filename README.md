@@ -1,3 +1,10 @@
+## Important Links
+For deploying app
+* https://github.com/Urucas/electron-packager-interactive/blob/master/README.md
+For using local storage
+* https://codeburst.io/build-a-todo-app-with-electron-d6c61f58b55a
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
