@@ -1,7 +1,6 @@
 ## Important Links
-For deploying app
+For deploying app & For using local storage
 * https://github.com/Urucas/electron-packager-interactive/blob/master/README.md
-For using local storage
 * https://codeburst.io/build-a-todo-app-with-electron-d6c61f58b55a
 
 
