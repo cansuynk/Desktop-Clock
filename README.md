@@ -7,6 +7,8 @@ For deploying app & For using local storage
 Check for help http://devnot.com/2019/react-native-ve-hooks-ile-haber-uygulamasi-yapimi-bolum-2/
  * 5193fda464c94330bd8b1ffd48749cef
 
+## Cansu react-open-weather API Key
+- Your API key is 58f46e0fda1c1d4da743943c656bcfe3
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
