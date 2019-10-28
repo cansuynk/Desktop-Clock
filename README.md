@@ -3,6 +3,10 @@ For deploying app & For using local storage
 * https://github.com/Urucas/electron-packager-interactive/blob/master/README.md
 * https://codeburst.io/build-a-todo-app-with-electron-d6c61f58b55a
 
+## Burak API Key (Highly confidential Top SECRET) 
+Check for help http://devnot.com/2019/react-native-ve-hooks-ile-haber-uygulamasi-yapimi-bolum-2/
+ * 5193fda464c94330bd8b1ffd48749cef
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
