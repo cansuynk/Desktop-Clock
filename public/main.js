@@ -27,7 +27,8 @@ app.on('activate', () => {
     createWindow();
   }
 });
-view.setAutoResize({ width: false, height: false });
+//view.setAutoResize({ width: false, height: false });
+/*
 var resizeTimeout;
 mainWindow.on('resize', (e) => {
     console.log("girdi");
@@ -38,3 +39,4 @@ mainWindow.on('resize', (e) => {
       
     }, 100);
 });
+*/

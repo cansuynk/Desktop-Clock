@@ -13,14 +13,9 @@ class App extends React.Component {
     render() {
         return (
             <div className="container">
-                
-                    
-
-                    
+   
                         {this.state.auth ? <Welcome/> : <Welcome/>}
-                   
 
-                   
                 
             </div>
         )
