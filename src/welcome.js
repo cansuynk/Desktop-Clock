@@ -1,7 +1,10 @@
 import React from 'react';
+import uuid from "uuid";
 
 import './App.css';
 import './welcome.css';
+import News from "./components/news.js"
+import Todos from "./components/todo.js"
 
 class Welcome extends React.Component {
     constructor(props) {
@@ -15,14 +18,12 @@ class Welcome extends React.Component {
             theme: "Night",
             settingsVisible: false
         };
-        this.testData = this.testData.bind(this);
         this.handleOptionChange = this.handleOptionChange.bind(this);
     }
 
     componentDidMount() {
         this.timerID = setInterval(() => this.tick(), 1000);
         this.timerID = setInterval(() => this.dayOfWeek(), 1000);
-        this.testData();
     }
 
     componentWillUnmount() {
@@ -78,8 +79,16 @@ class Welcome extends React.Component {
 
             element = document.getElementsByClassName("clock-container");
             element[0].style.float = "left";
+            
+            let placed_component = ""
+            if (someParameter["SectorID"] === "News") {
+                placed_component = <News key={uuid.v4()} DayID={someParameter["DayID"]} />
+            } else if (someParameter["SectorID"] === "Todos") {
+                placed_component = <Todos key={uuid.v4()} DayID={someParameter["DayID"]} />
+            }
 
             this.setState({
+                contentBody: placed_component,
                 contentVisible: true
             });
         }
@@ -132,13 +141,7 @@ class Welcome extends React.Component {
 
     }
 
-    testData() {
-        const todos = JSON.parse(window.localStorage.getItem('todos')) || [];
-        console.log(todos);
-
-        
-
-    }
+    
     handleOptionChange(e) {
         console.log(e.target.value);
         this.setState({
@@ -277,23 +280,23 @@ class Welcome extends React.Component {
                         </div>
 
                         <div className="activity">
-                            <div className="sector"></div>
-                            <div className="sector"></div>
-                            <div className="sector"></div>
-                            <div className="sector"></div>
-                            <div className="sector"></div>
-                            <div className="sector"></div>
-                            <div className="sector"></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "Todos", "DayID": 2})}}></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "Todos", "DayID": 3})}}></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "Todos", "DayID": 4})}}></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "Todos", "DayID": 5})}}></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "Todos", "DayID": 6})}}></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "Todos", "DayID": 0})}}></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "Todos", "DayID": 1})}}></div>
                         </div>
 
                         <div className="news">
-                            <div className="sector" onClick={(e) => { this.newsList(e, 1)}}></div>
-                            <div className="sector" onClick={(e) => { this.newsList(e, 1) }}></div>
-                            <div className="sector" onClick={(e) => { this.newsList(e, 1) }}></div>
-                            <div className="sector" onClick={(e) => { this.newsList(e, 1) }}></div>
-                            <div className="sector" onClick={(e) => { this.newsList(e, 1) }}></div>
-                            <div className="sector" onClick={(e) => { this.newsList(e, 1) }}></div>
-                            <div className="sector" onClick={(e) => { this.newsList(e, 1) }}></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "News", "DayID": 2})}}></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "News", "DayID": 3})}}></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "News", "DayID": 4})}}></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "News", "DayID": 5})}}></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "News", "DayID": 6})}}></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "News", "DayID": 0})}}></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "News", "DayID": 1})}}></div>
                         </div>
 
                         <div className="weather">
