@@ -6,6 +6,9 @@ import './welcome.css';
 import News from "./components/news.js"
 import Todos from "./components/todo.js"
 
+
+const CATEGORY = ["business", "entertainment", "general", "health", "science", "sports", "technology"]
+
 class Welcome extends React.Component {
     constructor(props) {
         super(props);
@@ -18,12 +21,14 @@ class Welcome extends React.Component {
             theme: "Night",
             settingsVisible: false
         };
+        this.testData = this.testData.bind(this);
         this.handleOptionChange = this.handleOptionChange.bind(this);
     }
 
     componentDidMount() {
         this.timerID = setInterval(() => this.tick(), 1000);
         this.timerID = setInterval(() => this.dayOfWeek(), 1000);
+        this.testData();
     }
 
     componentWillUnmount() {
@@ -79,10 +84,10 @@ class Welcome extends React.Component {
 
             element = document.getElementsByClassName("clock-container");
             element[0].style.float = "left";
-            
+
             let placed_component = ""
             if (someParameter["SectorID"] === "News") {
-                placed_component = <News key={uuid.v4()} DayID={someParameter["DayID"]} />
+                placed_component = <News key={uuid.v4()} country={this.state.newsCountry} category={CATEGORY[someParameter["DayID"]]} />
             } else if (someParameter["SectorID"] === "Todos") {
                 placed_component = <Todos key={uuid.v4()} DayID={someParameter["DayID"]} />
             }
@@ -141,7 +146,13 @@ class Welcome extends React.Component {
 
     }
 
-    
+    testData() {
+        const todos = JSON.parse(window.localStorage.getItem('todos')) || [];
+        console.log(todos);
+
+        
+
+    }
     handleOptionChange(e) {
         console.log(e.target.value);
         this.setState({
@@ -195,6 +206,65 @@ class Welcome extends React.Component {
         }
     }
 
+    changeFont(event, someParameter) {
+
+        if (someParameter === "a") {
+            document.getElementsByTagName("body")[0].style.fontFamily = "Times New Roman";
+            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Times New Roman");
+           
+        }
+        if (someParameter === "b") {
+            document.getElementsByTagName("body")[0].style.fontFamily = "Arial";
+            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Arial");
+        }
+        if (someParameter === "c") {
+            document.getElementsByTagName("body")[0].style.fontFamily = "Comic Sans MS";
+            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Comic Sans MS");
+        }
+        if (someParameter === "d") {
+            document.getElementsByTagName("body")[0].style.fontFamily = "Impact";
+            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Impact");
+        }
+        if (someParameter === "e") {
+            document.getElementsByTagName("body")[0].style.fontFamily = "Courier New";
+            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Courier New");
+        }
+        if (someParameter === "f") {
+            document.getElementsByTagName("body")[0].style.fontFamily = "Brush Script MT";
+            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Brush Script MT");
+        }
+        if (someParameter === "g") {
+            document.getElementsByTagName("body")[0].style.fontFamily = "Papyrus";
+            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Papyrus");
+        }
+        if (someParameter === "h") {
+            document.getElementsByTagName("body")[0].style.fontFamily = "Copperplate";
+            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Copperplate");
+        }
+        if (someParameter === "i") {
+            document.getElementsByTagName("body")[0].style.fontFamily = "Goudy Old Style";
+            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Goudy Old Style");
+        }
+        if (someParameter === "j") {
+            document.getElementsByTagName("body")[0].style.fontFamily = "Baskerville";
+            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Baskerville");
+        }
+        if (someParameter === "k") {
+            document.getElementsByTagName("body")[0].style.fontFamily = "Rockwell";
+            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Rockwell");
+        }
+        if (someParameter === "l") {
+            document.getElementsByTagName("body")[0].style.fontFamily = "Lucida Bright";
+            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Lucida Bright");
+        }
+        
+    }
+
+    changeLocation(event, someParameter) {
+         this.setState({
+             currentLocation: someParameter
+            });
+    }
 
     render() {
 
@@ -224,13 +294,12 @@ class Welcome extends React.Component {
                         <text className="header">Select a Theme </text>
                         <br/>
                         <table>
-                            <tbody>
                             <tr onChange={this.handleOptionChange.bind(this)}>
                                 <td>
                                 <div className="radio">
                                         <label><input type="radio" id='regular'
                                             name="theme"
-                                            defaultChecked={this.state.theme === 'Night'} 
+                                            checked={this.state.theme === 'Night'} 
                                             //onChange={this.handleOptionChange}
                                             value="Night"/><text className="themeName">Night</text>
                                             <div className="DarkBlueClock"><div className="line1"></div> <div className="line2"></div></div>
@@ -242,7 +311,7 @@ class Welcome extends React.Component {
                                         <label><input type="radio" id='regular'
                                             name="theme"
                                             //onChange={this.handleOptionChange}
-                                            defaultChecked={this.state.theme === 'Pinky'}
+                                            checked={this.state.theme === 'Pinky'}
                                             value="Pinky"
                                             /><text className="themeName">Pinky</text>
                                             <div className="PinkClock"><div className="line1"></div> <div className="line2"></div></div>
@@ -254,15 +323,98 @@ class Welcome extends React.Component {
                                         <label><input type="radio" id='regular'
                                             name="theme"
                                            // onChange={this.handleOptionChange}
-                                           defaultChecked={this.state.theme === 'Forest'}
+                                            checked={this.state.theme === 'Forest'}
                                             value="Forest"/><text className="themeName">Forest</text>
                                             <div className="GreenClock"><div className="line1"></div> <div className="line2"></div></div>
                                         </label>
                                     </div>
                                 </td>
                             </tr>
-                            </tbody>
                         </table>
+
+                        <text className="header">Select a Font Family</text>
+                        <br />
+                        <table>
+                            <tr>
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "a") }}>
+                                    <p className="a">Times New Roman</p>
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "b") }}>
+                                   <p className="b">Arial</p>
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "c") }}>
+                                    <p className="c">Comic Sans MS</p>
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "d") }}>
+                                   <p className="d">Impact</p>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "e") }}>
+                                    <p className="e">Courier New</p>
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "f") }}>
+                                    <p className="f">Brush Script MT</p>
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "g") }}>
+                                    <p className="g">Papyrus</p>
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "h") }}>
+                                    <p className="h">Copperplate</p>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "i") }}>
+                                    <p className="i">Goudy Old Style</p>
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "j") }}>
+                                    <p className="j">Baskerville</p>
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "k") }}>
+                                    <p className="k">Rockwell</p>
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "l") }}>
+                                    <p className="l">Lucida Bright</p>
+                                </td>
+
+                            </tr>
+                            
+
+                        </table>
+                        <text className="header">Select a Location</text>
+                        <br />
+                        <div class="form-group">
+                           
+                            <select multiple class="form-control" id="exampleFormControlSelect2">
+                                <option onClick={(e) => { this.changeLocation(e, "Amsterdam/Netherlands") }}>Amsterdam</option> <option onClick={(e) => { this.changeLocation(e, "Taipei/Taiwan") }}>Taipei</option>
+                                <option onClick={(e) => { this.changeLocation(e, "Barcelona/Spain") }}>Barcelona</option> <option onClick={(e) => { this.changeLocation(e, "Hong Kong") }}>Hong Kong</option>
+                                <option onClick={(e) => { this.changeLocation(e, "Tokyo/Japan") }}>Tokyo</option> <option onClick={(e) => { this.changeLocation(e, "London/United Kingdom") }}>London</option>
+                                <option onClick={(e) => { this.changeLocation(e, "Dubai/United Arab Emirates") }}>Dubai</option> <option onClick={(e) => { this.changeLocation(e, "Paris/France") }}>Paris</option>
+                                <option onClick={(e) => { this.changeLocation(e, "New York City/USA") }}>New York City</option> <option onClick={(e) => { this.changeLocation(e, "Singapore") }}>Singapore</option>
+                                <option onClick={(e) => { this.changeLocation(e, "Mumbai/India") }}>Mumbai</option> <option onClick={(e) => { this.changeLocation(e, "Delhi/India") }}>Delhi</option>
+                                <option onClick={(e) => { this.changeLocation(e, "Prague/Czech Republic") }}>Prague</option> <option onClick={(e) => { this.changeLocation(e, "Istanbul/Turkey") }}>Istanbul</option>
+                                <option onClick={(e) => { this.changeLocation(e, "Mecca/Saudi Arabia") }}>Mecca</option> <option onClick={(e) => { this.changeLocation(e, "Rome/Italy") }}>Rome</option>
+                                <option onClick={(e) => { this.changeLocation(e, "Miami/USA") }}>Miami</option> <option onClick={(e) => { this.changeLocation(e, "Guangzhou/China") }}>Guangzhou</option>
+                                <option onClick={(e) => { this.changeLocation(e, "Seoul/South Korea") }}>Seoul</option> <option onClick={(e) => { this.changeLocation(e, "Bangkok/Thailand") }}>Bangkok</option>
+                                <option onClick={(e) => { this.changeLocation(e, "Shanghai/China") }}>Shanghai</option> <option onClick={(e) => { this.changeLocation(e, "Los Angeles/USA") }}>Los Angeles</option>
+                            </select>
+                            
+                        </div>
+                       
+
                     </div>
                     
                     

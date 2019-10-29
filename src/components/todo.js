@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 class Todos extends React.Component {
     constructor(props) {
         super(props)
@@ -74,7 +75,7 @@ class Todos extends React.Component {
 
     render() {
         return (
-            <div style= {{textAlign: "center",  color: 'white'}}>
+            <div style= {{textAlign: "center",  color: 'white', fontSize: "18px"}}>
                 <h1>{this.state.date.toLocaleString().substring(0,10)}</h1>
                 <table class="table">
                     <tbody>
