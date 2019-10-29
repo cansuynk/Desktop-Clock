@@ -224,12 +224,13 @@ class Welcome extends React.Component {
                         <text className="header">Select a Theme </text>
                         <br/>
                         <table>
+                            <tbody>
                             <tr onChange={this.handleOptionChange.bind(this)}>
                                 <td>
                                 <div className="radio">
                                         <label><input type="radio" id='regular'
                                             name="theme"
-                                            checked={this.state.theme === 'Night'} 
+                                            defaultChecked={this.state.theme === 'Night'} 
                                             //onChange={this.handleOptionChange}
                                             value="Night"/><text className="themeName">Night</text>
                                             <div className="DarkBlueClock"><div className="line1"></div> <div className="line2"></div></div>
@@ -241,7 +242,7 @@ class Welcome extends React.Component {
                                         <label><input type="radio" id='regular'
                                             name="theme"
                                             //onChange={this.handleOptionChange}
-                                            checked={this.state.theme === 'Pinky'}
+                                            defaultChecked={this.state.theme === 'Pinky'}
                                             value="Pinky"
                                             /><text className="themeName">Pinky</text>
                                             <div className="PinkClock"><div className="line1"></div> <div className="line2"></div></div>
@@ -253,13 +254,14 @@ class Welcome extends React.Component {
                                         <label><input type="radio" id='regular'
                                             name="theme"
                                            // onChange={this.handleOptionChange}
-                                            checked={this.state.theme === 'Forest'}
+                                           defaultChecked={this.state.theme === 'Forest'}
                                             value="Forest"/><text className="themeName">Forest</text>
                                             <div className="GreenClock"><div className="line1"></div> <div className="line2"></div></div>
                                         </label>
                                     </div>
                                 </td>
                             </tr>
+                            </tbody>
                         </table>
                     </div>
                     
