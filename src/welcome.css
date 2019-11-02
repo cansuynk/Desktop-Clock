@@ -16,11 +16,23 @@
     border-style: solid;
     float: none;
 }
+
+.language {
+    width: 20%;
+    height: 10%;
+    right: 3vw;
+    top: 0;
+    /*background-color: red;*/
+    float: right;
+    position: absolute;
+}
+
+
 .icons {
     width: 10%;
     height: 10%;
     position: absolute;
-    z-index: 900;
+    z-index: 100;
 }
 .icons:nth-child(1) {top: 4vw;left: 12vw; transform: rotate(-30deg)}
 .icons:nth-child(2) {top: 19vw;left: 2vw; transform: rotate(-90deg);}
@@ -37,6 +49,14 @@
 .icons:nth-child(12) {top: 30vw;left: 12vw;transform: rotate(-130deg);}
 .icons:nth-child(13) {top: 19vw;left: 10vw;transform: rotate(-80deg);}
 .icons:nth-child(14) {top: 10vw;left: 16vw;transform: rotate(-20deg);}
+
+.icons:nth-child(15) {top: 17vw;left: 26.5vw;transform: rotate(35deg); width: 8%;height: 8%;}
+.icons:nth-child(16) {top: 22vw;left: 29vw;transform: rotate(90deg); width: 8%;height: 8%;}
+.icons:nth-child(17) {top: 27.5vw;left: 27vw;transform: rotate(140deg); width: 8%;height: 8%;}
+.icons:nth-child(18) {top: 29vw;left: 21.5vw;transform: rotate(170deg); width: 8%;height: 8%;}
+.icons:nth-child(19) {top: 25.5vw;left: 16.5vw;transform: rotate(-130deg); width: 8%;height: 8%;}
+.icons:nth-child(20) {top: 20vw;left: 16.5vw;transform: rotate(-80deg); width: 8%;height: 8%;}
+.icons:nth-child(21) {top: 16vw;left: 21vw;transform: rotate(-20deg); width: 8%;height: 8%;}
 
 .icons img{
       max-width: 100%;

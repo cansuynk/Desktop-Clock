@@ -339,7 +339,9 @@ class Welcome extends React.Component {
 
         return (
             <div >
-                {<div className="digital"> {this.state.date.toLocaleTimeString()} <br/> {this.state.currentLocation}</div>}
+                {<div className="digital"> {this.state.date.toLocaleTimeString()} <br /> {this.state.currentLocation}</div>}
+
+                <div className = "language">  </div>
 
                 <div className="settings">
                     <div className="settingsContent">
@@ -465,6 +467,9 @@ class Welcome extends React.Component {
                             </select>
                             
                         </div>
+
+                        <text className="header">Select a Language</text>
+                        <br />
                        
 
                     </div>
@@ -490,6 +495,14 @@ class Welcome extends React.Component {
                         <div className="icons"><img alt="science" title="science" src="./science.png" /> </div>
                         <div className="icons"><img alt="sports" title="sports" src="./sports.png" /> </div>
                         <div className="icons"><img alt="technology" title="technology" src="./technology.png" /> </div>
+
+                        <div className="icons"><img alt="weather" title="weather" src="./weather.png" /> </div>
+                        <div className="icons"><img alt="weather" title="weather" src="./weather.png" /> </div>
+                        <div className="icons"><img alt="weather" title="weather" src="./weather.png" /> </div>
+                        <div className="icons"><img alt="weather" title="weather" src="./weather.png" /> </div>
+                        <div className="icons"><img alt="weather" title="weather" src="./weather.png" /> </div>
+                        <div className="icons"><img alt="weather" title="weather" src="./weather.png" /> </div>
+                        <div className="icons"><img alt="weather" title="weather" src="./weather.png" /> </div>
                     
 
                         <div className="surface">
