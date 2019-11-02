@@ -505,29 +505,29 @@ class Welcome extends React.Component {
                 <div className="clock-container styling">
                     <div id="clock" className="clock-content">
 
-                        <div className="icons"><img alt="todo" title="todo" src="./checklist.png" /> </div>
-                        <div className="icons"><img alt="todo" title="todo" src="./checklist.png" /> </div>
-                        <div className="icons"><img alt="todo" title="todo" src="./checklist.png" /> </div>
-                        <div className="icons"><img alt="todo" title="todo" src="./checklist.png" /> </div>
-                        <div className="icons"><img alt="todo" title="todo" src="./checklist.png" /> </div>
-                        <div className="icons"><img alt="todo" title="todo" src="./checklist.png" /> </div>
-                        <div className="icons"><img alt="todo" title="todo" src="./checklist.png" /> </div>
+                        <div className="icons"><img alt="todo" title="todo" src="./icons/checklist.png" /> </div>
+                        <div className="icons"><img alt="todo" title="todo" src="./icons/checklist.png" /> </div>
+                        <div className="icons"><img alt="todo" title="todo" src="./icons/checklist.png" /> </div>
+                        <div className="icons"><img alt="todo" title="todo" src="./icons/checklist.png" /> </div>
+                        <div className="icons"><img alt="todo" title="todo" src="./icons/checklist.png" /> </div>
+                        <div className="icons"><img alt="todo" title="todo" src="./icons/checklist.png" /> </div>
+                        <div className="icons"><img alt="todo" title="todo" src="./icons/checklist.png" /> </div>
 
-                        <div className="icons"><img alt="business" title="business" src="./business.png" /> </div>
-                        <div className="icons"><img alt="entertainment" title="entertainment" src="./entertainment.png" /> </div>
-                        <div className="icons"><img alt="general" title="general" src="./general.png" /> </div>
-                        <div className="icons"><img alt="health" title="health" src="./health.png" /> </div>
-                        <div className="icons"><img alt="science" title="science" src="./science.png" /> </div>
-                        <div className="icons"><img alt="sports" title="sports" src="./sports.png" /> </div>
-                        <div className="icons"><img alt="technology" title="technology" src="./technology.png" /> </div>
+                        <div className="icons"><img alt="business" title="business" src="./icons/business.png" /> </div>
+                        <div className="icons"><img alt="entertainment" title="icons/entertainment" src="./icons/entertainment.png" /> </div>
+                        <div className="icons"><img alt="general" title="general" src="./icons/general.png" /> </div>
+                        <div className="icons"><img alt="health" title="health" src="./icons/health.png" /> </div>
+                        <div className="icons"><img alt="science" title="science" src="./icons/science.png" /> </div>
+                        <div className="icons"><img alt="sports" title="sports" src="./icons/sports.png" /> </div>
+                        <div className="icons"><img alt="technology" title="technology" src="./icons/technology.png" /> </div>
 
-                        <div className="icons"><img alt="weather" title="weather" src="./weather.png" /> </div>
-                        <div className="icons"><img alt="weather" title="weather" src="./weather.png" /> </div>
-                        <div className="icons"><img alt="weather" title="weather" src="./weather.png" /> </div>
-                        <div className="icons"><img alt="weather" title="weather" src="./weather.png" /> </div>
-                        <div className="icons"><img alt="weather" title="weather" src="./weather.png" /> </div>
-                        <div className="icons"><img alt="weather" title="weather" src="./weather.png" /> </div>
-                        <div className="icons"><img alt="weather" title="weather" src="./weather.png" /> </div>
+                        <div className="icons"><img alt="weather" title="weather" src="./icons/weather.png" /> </div>
+                        <div className="icons"><img alt="weather" title="weather" src="./icons/weather.png" /> </div>
+                        <div className="icons"><img alt="weather" title="weather" src="./icons/weather.png" /> </div>
+                        <div className="icons"><img alt="weather" title="weather" src="./icons/weather.png" /> </div>
+                        <div className="icons"><img alt="weather" title="weather" src="./icons/weather.png" /> </div>
+                        <div className="icons"><img alt="weather" title="weather" src="./icons/weather.png" /> </div>
+                        <div className="icons"><img alt="weather" title="weather" src="./icons/weather.png" /> </div>
                     
 
                         <div className="surface">
