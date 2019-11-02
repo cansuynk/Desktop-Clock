@@ -1,6 +1,7 @@
-import React from 'react';
-const Axios = require('axios')
-
+import React from 'react'
+import Axios  from 'axios'
+const { shell } = window.require('electron')
+ 
 const CATEGORY = ["business", "entertainment", "general", "health", "science", "sports", "technology"]
 const COUNTRY = {
             "China" : "cn", "Turkey": "tr", "Japan": "jp", "Germany" : "de",
@@ -29,6 +30,14 @@ class News extends React.Component {
             error: "",
             loading: true
         }
+    }
+
+    handleClick(url) {
+        return (
+            () => {
+                shell.openExternal(url)
+            }
+        )
     }
 
     componentDidMount(){
@@ -61,11 +70,17 @@ class News extends React.Component {
                             this.state.news.map((art, id) =>{ return (
                                 <tr className="popover popover-left" key={id}>
                                     <td style={{color: 'white'}}>{art.title}</td>
-                                    <div class="popover-container" style={{backgroundColor: "white"}}>
+                                    <div 
+                                     onMouseEnter={() => {
+                                        document.body.style.cursor = "pointer";
+                                      }}
+                                      onMouseLeave={() => {
+                                        document.body.style.cursor = "default";
+                                      }}
+                                    
+                                    onClick={this.handleClick(this.state.news[id].url)} class="popover-container" style={{backgroundColor: "white"}}>
                                     <div class="card-image">
-                                        <a href={this.state.news[id].url}>
-                                            <img src={this.state.news[id].urlToImage} class="img-responsive" />
-                                        </a>
+                                        <img  src={this.state.news[id].urlToImage} class="img-responsive" />
                                         <div class="card-header">
                                             <div class="card-title h5">{this.state.news[id].title}</div>
                                             <div class="card-subtitle text-gray">{this.state.news[id].source.name}</div>
