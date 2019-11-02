@@ -198,12 +198,10 @@ class Welcome extends React.Component {
         if (e.target.value === "Night") {        
             document.body.style.backgroundImage = "url('./background.jpg')";
             element = document.getElementsByClassName("clock-container")[0];
-            element.style.backgroundColor = "#000e29";
-            element.style.opacity = "0.7";
+            element.style.backgroundColor = 'rgb(' + [0, 14, 41, 0.7].join(',') + ')';
             document.getElementsByClassName("digital")[0].style.color = "white";
             element = document.getElementsByClassName("content")[0];
-            element.style.backgroundColor = "#000e29";
-            element.style.opacity = "0.7";
+            element.style.backgroundColor = 'rgb(' + [0, 14, 41, 0.7].join(',') + ')';
             document.getElementById("seconds-indicator").style.backgroundColor = "#b3e3e3";
             document.getElementById("minutes-indicator").style.backgroundColor = "#0261a9";
             document.getElementById("hours-indicator").style.backgroundColor = "#02e3e3";
@@ -213,12 +211,10 @@ class Welcome extends React.Component {
         if (e.target.value === "Pinky") {
             document.body.style.backgroundImage = "url('./pinkBackground.jpg')"; 
             element = document.getElementsByClassName("clock-container")[0];
-            element.style.backgroundColor = "#b30000";
-            element.style.opacity = "0.7";
+            element.style.backgroundColor = 'rgb(' + [179, 0, 0, 0.5].join(',') + ')';     
             document.getElementsByClassName("digital")[0].style.color = "#b30000";
             element = document.getElementsByClassName("content")[0];
-            element.style.backgroundColor = "#b30000";
-            element.style.opacity = "0.7";
+            element.style.backgroundColor = 'rgb(' + [179, 0, 0, 0.5].join(',') + ')';
             document.getElementById("seconds-indicator").style.backgroundColor = "#ffccff";
             document.getElementById("minutes-indicator").style.backgroundColor = "#ff0066";
             document.getElementById("hours-indicator").style.backgroundColor = "#ff00ff";
@@ -229,12 +225,10 @@ class Welcome extends React.Component {
         if (e.target.value === "Forest") {
             document.body.style.backgroundImage = "url('./greenBackground.jpg')";
             element = document.getElementsByClassName("clock-container")[0];
-            element.style.backgroundColor = "#024b02";
-            element.style.opacity = "0.8";
+            element.style.backgroundColor = 'rgb(' + [2, 75, 2, 0.5].join(',') + ')';
             document.getElementsByClassName("digital")[0].style.color = "#026402";
             element = document.getElementsByClassName("content")[0];
-            element.style.backgroundColor = "#024b02";
-            element.style.opacity = "0.8";
+            element.style.backgroundColor = 'rgb(' + [2, 75, 2, 0.5].join(',') + ')';
             document.getElementById("seconds-indicator").style.backgroundColor = "#ccffdd";
             document.getElementById("minutes-indicator").style.backgroundColor = "#00b300";
             document.getElementById("hours-indicator").style.backgroundColor = "#80ff80"; 
