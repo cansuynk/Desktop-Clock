@@ -21,6 +21,8 @@ class Welcome extends React.Component {
             currentLocation: "Istanbul/Turkey",
             theme: "Night",
             fontName: "Gill Sans",
+            languageIcon: "url('./languages/tr.png')",
+            language: "tr",
             settingsVisible: false
         };
         this.testData = this.testData.bind(this);
@@ -225,92 +227,11 @@ class Welcome extends React.Component {
 
     changeFont(event, someParameter) {
 
-        if (someParameter === "a") {
-            document.getElementsByTagName("body")[0].style.fontFamily = "Times New Roman";
-            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Times New Roman");
-            this.setState({
-                settingsVisible: "Times New Roman"
-            });
-           
-        }
-        if (someParameter === "b") {
-            document.getElementsByTagName("body")[0].style.fontFamily = "Arial";
-            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Arial");
-            this.setState({
-                settingsVisible: "Arial"
-            });
-        }
-        if (someParameter === "c") {
-            document.getElementsByTagName("body")[0].style.fontFamily = "Comic Sans MS";
-            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Comic Sans MS");
-            this.setState({
-                settingsVisible: "Comic Sans MS"
-            });
-        }
-        if (someParameter === "d") {
-            document.getElementsByTagName("body")[0].style.fontFamily = "Impact";
-            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Impact");
-            this.setState({
-                settingsVisible: "Impact"
-            });
-        }
-        if (someParameter === "e") {
-            document.getElementsByTagName("body")[0].style.fontFamily = "Courier New";
-            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Courier New");
-            this.setState({
-                settingsVisible: "Courier New"
-            });
-        }
-        if (someParameter === "f") {
-            document.getElementsByTagName("body")[0].style.fontFamily = "Brush Script MT";
-            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Brush Script MT");
-            this.setState({
-                settingsVisible: "Brush Script MT"
-            });
-        }
-        if (someParameter === "g") {
-            document.getElementsByTagName("body")[0].style.fontFamily = "Papyrus";
-            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Papyrus");
-            this.setState({
-                settingsVisible: "Papyrus"
-            });
-        }
-        if (someParameter === "h") {
-            document.getElementsByTagName("body")[0].style.fontFamily = "Copperplate";
-            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Copperplate");
-            this.setState({
-                settingsVisible: "Copperplate"
-            });
-        }
-        if (someParameter === "i") {
-            document.getElementsByTagName("body")[0].style.fontFamily = "Goudy Old Style";
-            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Goudy Old Style");
-            this.setState({
-                settingsVisible: "Goudy Old Style"
-            });
-        }
-        if (someParameter === "j") {
-            document.getElementsByTagName("body")[0].style.fontFamily = "Baskerville";
-            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Baskerville");
-            this.setState({
-                settingsVisible: "Baskerville"
-            });
-        }
-        if (someParameter === "k") {
-            document.getElementsByTagName("body")[0].style.fontFamily = "Rockwell";
-            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Rockwell");
-            this.setState({
-                settingsVisible: "Rockwell"
-            });
-        }
-        if (someParameter === "l") {
-            document.getElementsByTagName("body")[0].style.fontFamily = "Lucida Bright";
-            document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Lucida Bright");
-            this.setState({
-                settingsVisible: "Lucida Bright"
-            });
-        }
-        
+        document.getElementsByTagName("body")[0].style.fontFamily = someParameter;
+        document.querySelectorAll('option').forEach(e => e.style.fontFamily = someParameter);
+        this.setState({
+            settingsVisible: someParameter
+        });
     }
 
     changeLocation(event, someParameter) {
@@ -318,10 +239,20 @@ class Welcome extends React.Component {
              currentLocation: someParameter
             });
     }
+    changeLanguage(event, someParameter) {
+     
+        var url = './languages/' + someParameter + '.png';
+        console.log(url);
+
+        var element = document.getElementsByClassName("language")[0];
+        element.style.backgroundImage = "url(" + url + ")";
+        this.setState({
+            languageIcon: "url('./languages/tr.png')",
+            language: someParameter
+        });  
+    }
 
     render() {
-
-        
 
         
         const hoursDegrees = this.state.date.getHours() * 30 + this.state.date.getMinutes() / 2;
@@ -358,8 +289,7 @@ class Welcome extends React.Component {
                                 <div className="radio">
                                         <label><input type="radio" id='regular'
                                             name="theme"
-                                            checked={this.state.theme === 'Night'} 
-                                            //onChange={this.handleOptionChange}
+                                            checked={this.state.theme === 'Night'}
                                             value="Night"/><text className="themeName">Night</text>
                                             <div className="DarkBlueClock"><div className="line1"></div> <div className="line2"></div></div>
                                         </label>
@@ -369,7 +299,6 @@ class Welcome extends React.Component {
                                     <div className="radio">
                                         <label><input type="radio" id='regular'
                                             name="theme"
-                                            //onChange={this.handleOptionChange}
                                             checked={this.state.theme === 'Pinky'}
                                             value="Pinky"
                                             /><text className="themeName">Pinky</text>
@@ -381,7 +310,6 @@ class Welcome extends React.Component {
                                     <div className="radio">
                                         <label><input type="radio" id='regular'
                                             name="theme"
-                                           // onChange={this.handleOptionChange}
                                             checked={this.state.theme === 'Forest'}
                                             value="Forest"/><text className="themeName">Forest</text>
                                             <div className="GreenClock"><div className="line1"></div> <div className="line2"></div></div>
@@ -395,57 +323,57 @@ class Welcome extends React.Component {
                         <br />
                         <table>
                             <tr>
-                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "a") }}>
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "Times New Roman") }}>
                                     <p className="a">Times New Roman</p>
                                 </td>
 
-                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "b") }}>
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "Arial") }}>
                                    <p className="b">Arial</p>
                                 </td>
 
-                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "c") }}>
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "Comic Sans MS") }}>
                                     <p className="c">Comic Sans MS</p>
                                 </td>
 
-                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "d") }}>
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "Impact") }}>
                                    <p className="d">Impact</p>
                                 </td>
 
                             </tr>
 
                             <tr>
-                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "e") }}>
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "Courier New") }}>
                                     <p className="e">Courier New</p>
                                 </td>
 
-                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "f") }}>
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "Brush Script MT") }}>
                                     <p className="f">Brush Script MT</p>
                                 </td>
 
-                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "g") }}>
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "Papyrus") }}>
                                     <p className="g">Papyrus</p>
                                 </td>
 
-                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "h") }}>
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "Copperplate") }}>
                                     <p className="h">Copperplate</p>
                                 </td>
 
                             </tr>
 
                             <tr>
-                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "i") }}>
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "Goudy Old Style") }}>
                                     <p className="i">Goudy Old Style</p>
                                 </td>
 
-                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "j") }}>
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "Baskerville") }}>
                                     <p className="j">Baskerville</p>
                                 </td>
 
-                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "k") }}>
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "Rockwell") }}>
                                     <p className="k">Rockwell</p>
                                 </td>
 
-                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "l") }}>
+                                <td className="tableCell" onClick={(e) => { this.changeFont(e, "Lucida Bright") }}>
                                     <p className="l">Lucida Bright</p>
                                 </td>
 
@@ -476,6 +404,98 @@ class Welcome extends React.Component {
                         <text className="header">Select a Language</text>
                         <br />
                        
+                        <table>
+                            <tr>
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "tr") }}>
+                                    <img alt="Turkish" title="Turkish" src="./languages/tr.png" />
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "au") }}>
+                                    <img alt="Australian" title="Australian" src="./languages/au.png" />
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "jp") }}>
+                                    <img alt="Japanese" title="Japanese" src="./languages/jp.png" />
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "ca") }}>
+                                    <img alt="Canadian" title="Canadian" src="./languages/ca.png" />
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "cn") }}>
+                                    <img alt="China" title="China" src="./languages/cn.png" />
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "de") }}>
+                                    <img alt="Deutsch" title="Deutsch" src="./languages/de.png" />
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "it") }}>
+                                    <img alt="Italian" title="Italian" src="./languages/it.png" />
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "cz") }}>
+                                    <img alt="Czech" title="Czech" src="./languages/cz.png" />
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "eg") }}>
+                                    <img alt="Egyptian" title="Egyptian" src="./languages/eg.png" />
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "fr") }}>
+                                    <img alt="French" title="French" src="./languages/fr.png" />
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "gb") }}>
+                                    <img alt="The UK" title="The UK" src="./languages/gb.png" />
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "gr") }}>
+                                    <img alt="Greek" title="Greek" src="./languages/gr.png" />
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "hu") }}>
+                                    <img alt="Hungarian" title="Hungarian" src="./languages/hu.png" />
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "in") }}>
+                                    <img alt="Indian" title="Indian" src="./languages/in.png" />
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "kr") }}>
+                                    <img alt="Korean" title="Korean" src="./languages/kr.png" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "nl") }}>
+                                    <img alt="Dutch" title="Dutch" src="./languages/nl.png" />
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "rs") }}>
+                                    <img alt="Serbia" title="Serbia" src="./languages/rs.png" />
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "br") }}>
+                                    <img alt="Brazilian" title="Brazilian" src="./languages/br.png" />
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "ru") }}>
+                                    <img alt="Russia" title="Russia" src="./languages/ru.png" />
+                                </td>
+
+                                <td className="tableCell" onClick={(e) => { this.changeLanguage(e, "us") }}>
+                                    <img alt="The USA" title="The USA" src="./languages/us.png" />
+                                </td>
+                            </tr>
+
+
+                        </table>
 
                     </div>
                     
