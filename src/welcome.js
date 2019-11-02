@@ -5,6 +5,7 @@ import './App.css';
 import './welcome.css';
 import News from "./components/news.js"
 import Todos from "./components/todo.js"
+import CircleType from 'circletype';
 
 
 const CATEGORY = ["business", "entertainment", "general", "health", "science", "sports", "technology"]
@@ -29,16 +30,26 @@ class Welcome extends React.Component {
         this.timerID = setInterval(() => this.tick(), 1000);
         this.timerID = setInterval(() => this.dayOfWeek(), 1000);
         this.testData();
+
+        /*
+        const circleType = new CircleType(document.getElementById('monday'));
+        circleType.radius(360);
+        
+        const circleType2 = new CircleType(document.getElementById('tuesday'));
+        circleType2.radius(360);
+        */
     }
 
     componentWillUnmount() {
         clearInterval(this.timerID);
+    
     }
 
     tick() {
         this.setState({
             date: new Date()
         });
+        
     }
 
     dayOfWeek() {
@@ -113,6 +124,7 @@ class Welcome extends React.Component {
 
     }
     settings(event, someParameter) {
+  
         var element;
         if (this.state.contentVisible === true) {
             element = document.getElementsByClassName("content");
@@ -142,8 +154,7 @@ class Welcome extends React.Component {
                 settingsVisible: false
             });
         }
-
-
+      
     }
 
     testData() {
@@ -268,6 +279,9 @@ class Welcome extends React.Component {
 
     render() {
 
+        
+
+        
         const hoursDegrees = this.state.date.getHours() * 30 + this.state.date.getMinutes() / 2;
         const minutesDegrees = this.state.date.getMinutes() * 6 + this.state.date.getSeconds() / 10;
         const secondsDegrees = this.state.date.getSeconds() * 6;
@@ -283,6 +297,7 @@ class Welcome extends React.Component {
         const divStyleSeconds = {
             transform: "rotateZ(" + secondsDegrees + "deg)"
         };
+       
 
 
         return (
@@ -465,13 +480,13 @@ class Welcome extends React.Component {
                         
                         
                    
-                        <text className="monday">Monday</text>
-                        <text className="tuesday">Tuesday</text>
-                        <text className="wednesday">Wednesday</text>
-                        <text className="thursday">Thursday</text>
-                        <text className="friday">Friday</text>
-                        <text className="saturday">Saturday</text>
-                        <text className="sunday">Sunday</text>
+                        <text className="monday" id="monday">Monday</text>
+                        <text className="tuesday" id="tuesday">Tuesday</text>
+                        <text className="wednesday" id="wednesday">Wednesday</text>
+                        <text className="thursday" id="thursday">Thursday</text>
+                        <text className="friday" id="friday">Friday</text>
+                        <text className="saturday" id="saturday">Saturday</text>
+                        <text className="sunday" id="sunday">Sunday</text>
                             
                         
 
