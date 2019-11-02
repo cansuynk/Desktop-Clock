@@ -27,6 +27,7 @@ class Welcome extends React.Component {
         };
         this.testData = this.testData.bind(this);
         this.handleOptionChange = this.handleOptionChange.bind(this);
+        this.closeContent = this.closeContent.bind(this);
     }
 
     componentDidMount() {
@@ -92,7 +93,7 @@ class Welcome extends React.Component {
             });
         }
 
-        if (this.state.contentVisible === false) {
+        //if (this.state.contentVisible === false) {
             element = document.getElementsByClassName("content");
             element[0].style.display = 'block';
 
@@ -115,7 +116,8 @@ class Welcome extends React.Component {
                 contentBody: placed_component,
                 contentVisible: true
             });
-        }
+        //}
+        /*
         else {
 
             element = document.getElementsByClassName("content");
@@ -128,9 +130,23 @@ class Welcome extends React.Component {
                 contentVisible: false
             });
         }
+        */
 
 
     }
+    closeContent() {
+
+        var element = document.getElementsByClassName("content");
+        element[0].style.display = 'none';
+
+        element = document.getElementsByClassName("clock-container");
+        element[0].style.float = "none";
+
+        this.setState({
+            contentVisible: false
+        });
+    }
+
     settings(event, someParameter) {
   
         var element;
@@ -251,6 +267,7 @@ class Welcome extends React.Component {
             language: someParameter
         });  
     }
+
 
     render() {
 
@@ -610,6 +627,9 @@ class Welcome extends React.Component {
                 </div>
                 <div className="content">
                     {this.state.contentBody}
+                    <button className="closeButton" onClick={this.closeContent}>
+                      Close
+                    </button>
                 </div>
             </div>
         );
