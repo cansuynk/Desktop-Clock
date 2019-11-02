@@ -16,7 +16,35 @@
     border-style: solid;
     float: none;
 }
+.icons {
+    width: 10%;
+    height: 10%;
+    position: absolute;
+    z-index: 900;
+}
+.icons:nth-child(1) {top: 4vw;left: 12vw; transform: rotate(-30deg)}
+.icons:nth-child(2) {top: 19vw;left: 2vw; transform: rotate(-90deg);}
+.icons:nth-child(3) {top: 35vw;left: 7vw; transform: rotate(-135deg);}
+.icons:nth-child(4) {top: 43vw;left: 23vw; transform: rotate(170deg);}
+.icons:nth-child(5) {top: 34vw;left: 39vw; transform: rotate(120deg);}
+.icons:nth-child(6) {top: 18vw;left: 42vw; transform: rotate(80deg);}
+.icons:nth-child(7) {top: 3vw;left: 30vw;transform: rotate(20deg);}
 
+.icons:nth-child(8) {top: 10vw;left: 28vw;transform: rotate(20deg);}
+.icons:nth-child(9) {top: 20vw;left: 35vw;transform: rotate(90deg);}
+.icons:nth-child(10) {top: 30vw;left: 32vw;transform: rotate(120deg);}
+.icons:nth-child(11) {top: 35vw;left: 22vw;transform: rotate(170deg);}
+.icons:nth-child(12) {top: 30vw;left: 12vw;transform: rotate(-130deg);}
+.icons:nth-child(13) {top: 19vw;left: 10vw;transform: rotate(-80deg);}
+.icons:nth-child(14) {top: 10vw;left: 16vw;transform: rotate(-20deg);}
+
+.icons img{
+      max-width: 100%;
+      max-height: 100%;
+      margin: auto;
+      display: block;
+      opacity:1;
+}
 
 .weather {
     width: 35%;

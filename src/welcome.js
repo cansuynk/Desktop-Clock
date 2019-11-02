@@ -20,6 +20,7 @@ class Welcome extends React.Component {
             contentVisible: false,
             currentLocation: "Istanbul/Turkey",
             theme: "Night",
+            fontName: "Gill Sans",
             settingsVisible: false
         };
         this.testData = this.testData.bind(this);
@@ -222,51 +223,87 @@ class Welcome extends React.Component {
         if (someParameter === "a") {
             document.getElementsByTagName("body")[0].style.fontFamily = "Times New Roman";
             document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Times New Roman");
+            this.setState({
+                settingsVisible: "Times New Roman"
+            });
            
         }
         if (someParameter === "b") {
             document.getElementsByTagName("body")[0].style.fontFamily = "Arial";
             document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Arial");
+            this.setState({
+                settingsVisible: "Arial"
+            });
         }
         if (someParameter === "c") {
             document.getElementsByTagName("body")[0].style.fontFamily = "Comic Sans MS";
             document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Comic Sans MS");
+            this.setState({
+                settingsVisible: "Comic Sans MS"
+            });
         }
         if (someParameter === "d") {
             document.getElementsByTagName("body")[0].style.fontFamily = "Impact";
             document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Impact");
+            this.setState({
+                settingsVisible: "Impact"
+            });
         }
         if (someParameter === "e") {
             document.getElementsByTagName("body")[0].style.fontFamily = "Courier New";
             document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Courier New");
+            this.setState({
+                settingsVisible: "Courier New"
+            });
         }
         if (someParameter === "f") {
             document.getElementsByTagName("body")[0].style.fontFamily = "Brush Script MT";
             document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Brush Script MT");
+            this.setState({
+                settingsVisible: "Brush Script MT"
+            });
         }
         if (someParameter === "g") {
             document.getElementsByTagName("body")[0].style.fontFamily = "Papyrus";
             document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Papyrus");
+            this.setState({
+                settingsVisible: "Papyrus"
+            });
         }
         if (someParameter === "h") {
             document.getElementsByTagName("body")[0].style.fontFamily = "Copperplate";
             document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Copperplate");
+            this.setState({
+                settingsVisible: "Copperplate"
+            });
         }
         if (someParameter === "i") {
             document.getElementsByTagName("body")[0].style.fontFamily = "Goudy Old Style";
             document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Goudy Old Style");
+            this.setState({
+                settingsVisible: "Goudy Old Style"
+            });
         }
         if (someParameter === "j") {
             document.getElementsByTagName("body")[0].style.fontFamily = "Baskerville";
             document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Baskerville");
+            this.setState({
+                settingsVisible: "Baskerville"
+            });
         }
         if (someParameter === "k") {
             document.getElementsByTagName("body")[0].style.fontFamily = "Rockwell";
             document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Rockwell");
+            this.setState({
+                settingsVisible: "Rockwell"
+            });
         }
         if (someParameter === "l") {
             document.getElementsByTagName("body")[0].style.fontFamily = "Lucida Bright";
             document.querySelectorAll('option').forEach(e => e.style.fontFamily = "Lucida Bright");
+            this.setState({
+                settingsVisible: "Lucida Bright"
+            });
         }
         
     }
@@ -420,7 +457,7 @@ class Welcome extends React.Component {
                                 <option onClick={(e) => { this.changeLocation(e, "Dubai/United Arab Emirates") }}>Dubai</option> <option onClick={(e) => { this.changeLocation(e, "Paris/France") }}>Paris</option>
                                 <option onClick={(e) => { this.changeLocation(e, "New York City/USA") }}>New York City</option> <option onClick={(e) => { this.changeLocation(e, "Singapore") }}>Singapore</option>
                                 <option onClick={(e) => { this.changeLocation(e, "Mumbai/India") }}>Mumbai</option> <option onClick={(e) => { this.changeLocation(e, "Delhi/India") }}>Delhi</option>
-                                <option onClick={(e) => { this.changeLocation(e, "Prague/Czech Republic") }}>Prague</option> <option onClick={(e) => { this.changeLocation(e, "Istanbul/Turkey") }}>Istanbul</option>
+                                <option onClick={(e) => { this.changeLocation(e, "Prague/Czechia") }}>Prague</option> <option onClick={(e) => { this.changeLocation(e, "Istanbul/Turkey") }}>Istanbul</option>
                                 <option onClick={(e) => { this.changeLocation(e, "Mecca/Saudi Arabia") }}>Mecca</option> <option onClick={(e) => { this.changeLocation(e, "Rome/Italy") }}>Rome</option>
                                 <option onClick={(e) => { this.changeLocation(e, "Miami/USA") }}>Miami</option> <option onClick={(e) => { this.changeLocation(e, "Guangzhou/China") }}>Guangzhou</option>
                                 <option onClick={(e) => { this.changeLocation(e, "Seoul/South Korea") }}>Seoul</option> <option onClick={(e) => { this.changeLocation(e, "Bangkok/Thailand") }}>Bangkok</option>
@@ -437,7 +474,24 @@ class Welcome extends React.Component {
 
                 <div className="clock-container styling">
                     <div id="clock" className="clock-content">
+
+                        <div className="icons"><img alt="todo" title="todo" src="./checklist.png" /> </div>
+                        <div className="icons"><img alt="todo" title="todo" src="./checklist.png" /> </div>
+                        <div className="icons"><img alt="todo" title="todo" src="./checklist.png" /> </div>
+                        <div className="icons"><img alt="todo" title="todo" src="./checklist.png" /> </div>
+                        <div className="icons"><img alt="todo" title="todo" src="./checklist.png" /> </div>
+                        <div className="icons"><img alt="todo" title="todo" src="./checklist.png" /> </div>
+                        <div className="icons"><img alt="todo" title="todo" src="./checklist.png" /> </div>
+
+                        <div className="icons"><img alt="business" title="business" src="./business.png" /> </div>
+                        <div className="icons"><img alt="entertainment" title="entertainment" src="./entertainment.png" /> </div>
+                        <div className="icons"><img alt="general" title="general" src="./general.png" /> </div>
+                        <div className="icons"><img alt="health" title="health" src="./health.png" /> </div>
+                        <div className="icons"><img alt="science" title="science" src="./science.png" /> </div>
+                        <div className="icons"><img alt="sports" title="sports" src="./sports.png" /> </div>
+                        <div className="icons"><img alt="technology" title="technology" src="./technology.png" /> </div>
                     
+
                         <div className="surface">
                             <div className="sector"></div>
                             <div className="sector"></div>
