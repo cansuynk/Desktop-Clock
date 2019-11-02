@@ -1,6 +1,5 @@
 import React from 'react'
 import Axios  from 'axios'
-const { shell } = window.require('electron')
  
 const CATEGORY = ["business", "entertainment", "general", "health", "science", "sports", "technology"]
 const COUNTRY = {
@@ -35,7 +34,7 @@ class News extends React.Component {
     handleClick(url) {
         return (
             () => {
-                shell.openExternal(url)
+                window.shell.openExternal(url)
             }
         )
     }

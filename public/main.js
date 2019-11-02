@@ -12,9 +12,11 @@ function createWindow() {
   mainWindow = new BrowserWindow({width: 1500,
                                   height: 920, 
                                   webPreferences: {
-                                      nodeIntegration: true
+                                      nodeIntegration: true,
+                                      preload: path.join(__dirname , '../public/preload.js')
                                     }
                                 });
+
   mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
   mainWindow.on('closed', () => mainWindow = null);
 }
