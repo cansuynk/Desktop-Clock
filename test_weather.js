@@ -68,7 +68,7 @@ function fetch_weekly_forecast(city, country, callback) {
 }
 
 
-fetch_weekly_forecast("Guangzhou", "China", (day2weather, err) => {
+fetch_weekly_forecast("Istanbul", "Turkey", (day2weather, err) => {
     if (err) {
         console.log(err)
     } else {

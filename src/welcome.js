@@ -5,7 +5,7 @@ import './App.css';
 import './welcome.css';
 import News from "./components/news.js"
 import Todos from "./components/todo.js"
-import CircleType from 'circletype';
+import Weather from './components/weather';
 
 
 const CATEGORY = ["business", "entertainment", "general", "health", "science", "sports", "technology"]
@@ -102,6 +102,11 @@ class Welcome extends React.Component {
                 placed_component = <News key={uuid.v4()} country={this.state.newsCountry} category={CATEGORY[someParameter["DayID"]]} />
             } else if (someParameter["SectorID"] === "Todos") {
                 placed_component = <Todos key={uuid.v4()} DayID={someParameter["DayID"]} />
+            } else if (someParameter["SectorID"] === "Weather") {
+                placed_component = <Weather key={uuid.v4()}
+                country={this.state.currentLocation.split("/")[1]}
+                city={this.state.currentLocation.split("/")[0]}
+                dayId={someParameter["DayID"]} />
             }
 
             this.setState({
@@ -536,13 +541,13 @@ class Welcome extends React.Component {
                         </div>
 
                         <div className="weather">
-                            <div className="sector" ></div>
-                            <div className="sector" ></div>
-                            <div className="sector" ></div>
-                            <div className="sector" ></div>
-                            <div className="sector" ></div>
-                            <div className="sector" ></div>
-                            <div className="sector" ></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "Weather", "DayID": 3})}} ></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "Weather", "DayID": 4})}} ></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "Weather", "DayID": 5})}} ></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "Weather", "DayID": 6})}} ></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "Weather", "DayID": 0})}}></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "Weather", "DayID": 1})}}></div>
+                            <div className="sector" onClick={(e) => { this.newsList(e, {"SectorID": "Weather", "DayID": 2})}} ></div>
                         </div>
                         
                         

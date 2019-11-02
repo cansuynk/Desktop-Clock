@@ -1,3 +1,4 @@
+import React from "react"
 const Axios = require("axios")
 
 function getRandomItem(set) {
@@ -5,25 +6,25 @@ function getRandomItem(set) {
     return items[Math.floor(Math.random() * items.length)];
 }
 
-country2iso = {
+const country2iso = {
     "Netherlands": "nl", "Spain": "es", "Japan": "jp", "United Arab Emirates": "ae",
     "USA": "us", "India": "in", "Czechia": "cz",  "Saudi Arabia": "sa", "South Korea": "KR",
     "China": "cn", "Taiwan": "tw", "Hong Kong": "hk", "United Kingdom": "gb", "France": "fr",
     "Singapore": "sg",  "Turkey": "tr", "Italy": "it",  "Thailand": "th"
 }
 
-num2day = {
+const num2day = {
     1 : "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday",
     5: "Friday", 6: "Saturday", 0: "Sunday"
 }
 
 function fetch_weekly_forecast(city, country, callback) {
-    day2weather = {}
-    apiId = "58f46e0fda1c1d4da743943c656bcfe3"
-    city = city
-    code = country2iso[country]
-    mode = "json"
-    url =  `http://api.openweathermap.org/data/2.5/forecast?appid=${apiId}&q=${city},${code}&mode=${mode}`
+    var day2weather = {}
+    var apiId = "58f46e0fda1c1d4da743943c656bcfe3"
+    var city = city
+    var code = country2iso[country]
+    var mode = "json"
+    var url =  `http://api.openweathermap.org/data/2.5/forecast?appid=${apiId}&q=${city},${code}&mode=${mode}`
     Axios.get(url).then( (res, err) => {
         if (err) {
             callback(null , err)
@@ -53,7 +54,7 @@ function fetch_weekly_forecast(city, country, callback) {
             Object.keys(num2day).forEach((key) => {
                 key = num2day[key]
                 if(day2weather[key] === undefined ) {
-                    randomize_average = average //can add some staff
+                    var randomize_average = average //can add some staff
                     day2weather[key] = {
                         "min": Math.round(randomize_average),
                         "max": Math.round(randomize_average),
@@ -62,6 +63,7 @@ function fetch_weekly_forecast(city, country, callback) {
                     }
                 }
             })
+            console.log(day2weather)
             callback(day2weather, null)
         }
     })
@@ -91,15 +93,41 @@ class Weather extends React.Component {
                     temp: day2weather[num2day[this.props.dayId]].temp,
                     weather: day2weather[num2day[this.props.dayId]].weather,
                 })
+                console.log(this.state)
             }
         })
 
     }
 
     render() {
-        return (
-            <div>
+        var icon_src = "";
+        if (this.state.weather === "Clear") {
+            icon_src = "./sunny.png"
+        } else if  (this.state.weather === "Snow") {
+            icon_src = "./snow.png"
+        }
+        else if  (this.state.weather === "Rain") {
+            icon_src = "./rain.jpg"
+        }
+        else if  (this.state.weather === "Clouds") {
+            icon_src = "./cloud.png"
+        }
 
+        return (
+            <div  style={{textAlign: "center"}}>
+                    <div style = {{ color: "white",  backgroundColor: 'rgba(0, 0, 0, 0.0)'}} class="card">
+                    <div class="card-header">
+                        <div class="card-title h3">
+                            {num2day[this.props.dayId] + " (" + this.props.city + ")"}
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <img  width="128" height="128" src = {icon_src}/>
+                    </div>
+                    <div class="card-footer">
+                        {this.state.temp.toString()+ "°" + " Celsius"} 
+                    </div>
+                    </div>
             </div>
         )
     }
