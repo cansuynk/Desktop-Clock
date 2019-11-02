@@ -67,11 +67,42 @@ function fetch_weekly_forecast(city, country, callback) {
     })
 }
 
-
-fetch_weekly_forecast("Guangzhou", "China", (day2weather, err) => {
-    if (err) {
-        console.log(err)
-    } else {
-        console.log(day2weather)
+class Weather extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            loading: true,
+            temp: 20,
+            weather: "Clear",
+            err: null
+        }
     }
-})
+
+    componentDidMount() {
+        fetch_weekly_forecast(this.props.city, this.props.country, (day2weather, err) => {
+            if (err) {
+                this.setState({
+                    loading: false,
+                    err: true
+                })
+            } else {
+                this.setState({
+                    loading: false,
+                    temp: day2weather[num2day[this.props.dayId]].temp,
+                    weather: day2weather[num2day[this.props.dayId]].weather,
+                })
+            }
+        })
+
+    }
+
+    render() {
+        return (
+            <div>
+
+            </div>
+        )
+    }
+}
+
+export default Weather
