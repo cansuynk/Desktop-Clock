@@ -7,13 +7,7 @@ import News from "./components/news.js"
 import Todos from "./components/todo.js"
 import Weather from './components/weather';
 
-
-const CATEGORY = ["business", "entertainment", "general", "health", "science", "sports", "technology"]
-
-class Welcome extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+const default_state = {
             date: new Date(),
             day: 0,
             contentBody: "",
@@ -24,16 +18,34 @@ class Welcome extends React.Component {
             languageIcon: "url('./languages/tr.png')",
             language: "tr",
             settingsVisible: false
-        };
-        this.testData = this.testData.bind(this);
+        }
+
+const CATEGORY = ["business", "entertainment", "general", "health", "science", "sports", "technology"]
+
+class Welcome extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = default_state;
         this.handleOptionChange = this.handleOptionChange.bind(this);
         this.closeContent = this.closeContent.bind(this);
+        this.saveChanges = this.saveChanges.bind(this);
     }
 
     componentDidMount() {
+        /*var obj = JSON.parse(window.localStorage.getItem("settings"))
+        console.log(obj)
+        if (obj) {
+            
+            this.setState({
+                currentLocation: obj.currentLocation,
+                theme: obj.theme,
+                fontName: obj.fontName,
+                languageIcon: obj.languageIcon,
+                language: obj.language,
+            })
+        }*/
         this.timerID = setInterval(() => this.tick(), 1000);
         this.timerID = setInterval(() => this.dayOfWeek(), 1000);
-        this.testData();
 
         /*
         const circleType = new CircleType(document.getElementById('monday'));
@@ -102,7 +114,7 @@ class Welcome extends React.Component {
 
             let placed_component = ""
             if (someParameter["SectorID"] === "News") {
-                placed_component = <News key={uuid.v4()} country={this.state.newsCountry} category={CATEGORY[someParameter["DayID"]]} />
+                placed_component = <News key={uuid.v4()} country={this.state.language} category={CATEGORY[someParameter["DayID"]]} />
             } else if (someParameter["SectorID"] === "Todos") {
                 placed_component = <Todos key={uuid.v4()} DayID={someParameter["DayID"]} />
             } else if (someParameter["SectorID"] === "Weather") {
@@ -181,13 +193,18 @@ class Welcome extends React.Component {
       
     }
 
-    testData() {
-        const todos = JSON.parse(window.localStorage.getItem('todos')) || [];
-        console.log(todos);
-
-        
-
+    saveChanges() {
+        /*var obj = {
+            currentLocation: this.state.currentLocation,
+            theme: this.state.theme,
+            fontName: this.state.fontName,
+            languageIcon: this.state.languageIcon,
+            language: this.state.language,
+        }
+        window.localStorage.setItem("settings", JSON.stringify(obj))
+        console.log(obj)*/
     }
+
     handleOptionChange(e) {
         console.log(e.target.value);
         this.setState({
@@ -233,6 +250,7 @@ class Welcome extends React.Component {
             document.getElementById("minutes-indicator").style.backgroundColor = "#00b300";
             document.getElementById("hours-indicator").style.backgroundColor = "#80ff80"; 
         }
+        this.saveChanges()
     }
 
     changeFont(event, someParameter) {
@@ -242,12 +260,14 @@ class Welcome extends React.Component {
         this.setState({
             settingsVisible: someParameter
         });
+        this.saveChanges()
     }
 
     changeLocation(event, someParameter) {
          this.setState({
              currentLocation: someParameter
             });
+        this.saveChanges()
     }
     changeLanguage(event, someParameter) {
      
@@ -259,7 +279,8 @@ class Welcome extends React.Component {
         this.setState({
             languageIcon: "url('./languages/tr.png')",
             language: someParameter
-        });  
+        }); 
+        this.saveChanges()
     }
 
 
@@ -412,7 +433,7 @@ class Welcome extends React.Component {
                             
                         </div>
 
-                        <text className="header">Select a Language</text>
+                        <text className="header">Select News Language</text>
                         <br />
                        
                         <table>

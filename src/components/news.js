@@ -9,10 +9,9 @@ const COUNTRY = {
 
 function fetch_news(country_sel, category_sel, callback) {
     var selected_category = (CATEGORY.includes(category_sel) ? category_sel: null);
-    var picked_country = (COUNTRY[country_sel] ?  COUNTRY[country_sel] : "tr");
 
     let url = 'https://newsapi.org/v2/top-headlines?' + 
-            'country=' + picked_country + 
+            'country=' + country_sel + 
             (selected_category ? "&category=" + selected_category : "") +
             '&apiKey=5193fda464c94330bd8b1ffd48749cef';
 
