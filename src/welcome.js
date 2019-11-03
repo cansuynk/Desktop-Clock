@@ -8,8 +8,47 @@ import Todos from "./components/todo.js"
 import Weather from './components/weather';
 
 
+const city2offset = {
+    "Amsterdam": 1,
+    "Barcelona": 1,
+    "Tokyo": 9,
+    "Dubai": 4,
+    "New York": -5,
+    "Mumbai":  5.5,
+    "Prague":  1,
+    "Mecca": 3,
+    "Miami": -5,
+    "Seoul": 9,
+    "Shanghai": 8,
+    "Taipei": 8,
+    "Hong Kong": 8,
+    "London": 1,
+    "Paris": 1,
+    "Singapore": 8,
+    "Delhi": 5.5,
+    "Istanbul": 3,
+    "Rome": 1,
+    "Guangzhou": 8,
+    "Bangkok": 7,
+    "Los Angeles": -8
+}
+
+function calcTime(city) {
+    if (city) {
+        var offset = city2offset[city]
+        var d = new Date();
+        var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+        var nd = new Date(utc + (3600000*offset));
+        return nd
+    } else {
+        return new Date()
+    }
+    
+}
+
+
 const default_state = {
-            date: new Date(),
+            date: calcTime(null),
             day: 0,
             contentBody: "",
             contentVisible: false,
@@ -70,7 +109,7 @@ class Welcome extends React.Component {
 
     tick() {
         this.setState({
-            date: new Date()
+            date: calcTime(this.state.currentLocation.split("/")[0])
         });
         
     }
@@ -424,7 +463,7 @@ class Welcome extends React.Component {
                                 <option onClick={(e) => { this.changeLocation(e, "Barcelona/Spain") }}>Barcelona</option> <option onClick={(e) => { this.changeLocation(e, "Hong Kong") }}>Hong Kong</option>
                                 <option onClick={(e) => { this.changeLocation(e, "Tokyo/Japan") }}>Tokyo</option> <option onClick={(e) => { this.changeLocation(e, "London/United Kingdom") }}>London</option>
                                 <option onClick={(e) => { this.changeLocation(e, "Dubai/United Arab Emirates") }}>Dubai</option> <option onClick={(e) => { this.changeLocation(e, "Paris/France") }}>Paris</option>
-                                <option onClick={(e) => { this.changeLocation(e, "New York City/USA") }}>New York City</option> <option onClick={(e) => { this.changeLocation(e, "Singapore") }}>Singapore</option>
+                                <option onClick={(e) => { this.changeLocation(e, "New York/USA") }}>New York City</option> <option onClick={(e) => { this.changeLocation(e, "Singapore") }}>Singapore</option>
                                 <option onClick={(e) => { this.changeLocation(e, "Mumbai/India") }}>Mumbai</option> <option onClick={(e) => { this.changeLocation(e, "Delhi/India") }}>Delhi</option>
                                 <option onClick={(e) => { this.changeLocation(e, "Prague/Czechia") }}>Prague</option> <option onClick={(e) => { this.changeLocation(e, "Istanbul/Turkey") }}>Istanbul</option>
                                 <option onClick={(e) => { this.changeLocation(e, "Mecca/Saudi Arabia") }}>Mecca</option> <option onClick={(e) => { this.changeLocation(e, "Rome/Italy") }}>Rome</option>
