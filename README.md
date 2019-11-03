@@ -2,6 +2,7 @@
 For deploying app & For using local storage
 * https://github.com/Urucas/electron-packager-interactive/blob/master/README.md
 * https://codeburst.io/build-a-todo-app-with-electron-d6c61f58b55a
+* https://medium.com/@impaachu/how-to-build-a-react-based-electron-app-d0f27413f17f
 
 ## Burak API Key (Highly confidential Top SECRET) 
 Check for help http://devnot.com/2019/react-native-ve-hooks-ile-haber-uygulamasi-yapimi-bolum-2/
