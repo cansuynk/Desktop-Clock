@@ -32,18 +32,24 @@ class Welcome extends React.Component {
     }
 
     componentDidMount() {
-        /*var obj = JSON.parse(window.localStorage.getItem("settings"))
+        var obj = JSON.parse(window.localStorage.getItem("settings"))
         console.log(obj)
         if (obj) {
-            
             this.setState({
                 currentLocation: obj.currentLocation,
                 theme: obj.theme,
                 fontName: obj.fontName,
                 languageIcon: obj.languageIcon,
                 language: obj.language,
+            }, () => {
+                this.handleOptionChange({"target": { "value": this.state.theme}})
+                this.changeLocation(null, this.state.currentLocation )
+                this.changeLanguage(null, this.state.language)
+                this.changeFont(null,this.state.fontName )
             })
-        }*/
+           
+        }
+
         this.timerID = setInterval(() => this.tick(), 1000);
         this.timerID = setInterval(() => this.dayOfWeek(), 1000);
 
@@ -194,7 +200,7 @@ class Welcome extends React.Component {
     }
 
     saveChanges() {
-        /*var obj = {
+        var obj = {
             currentLocation: this.state.currentLocation,
             theme: this.state.theme,
             fontName: this.state.fontName,
@@ -202,14 +208,13 @@ class Welcome extends React.Component {
             language: this.state.language,
         }
         window.localStorage.setItem("settings", JSON.stringify(obj))
-        console.log(obj)*/
+        console.log(obj)
     }
 
     handleOptionChange(e) {
-        console.log(e.target.value);
         this.setState({
             theme: e.target.value
-        });
+        }, this.saveChanges);
 
         var element;
         if (e.target.value === "Night") {        
@@ -236,8 +241,6 @@ class Welcome extends React.Component {
             document.getElementById("minutes-indicator").style.backgroundColor = "#ff0066";
             document.getElementById("hours-indicator").style.backgroundColor = "#ff00ff";
             
-
-            
         }
         if (e.target.value === "Forest") {
             document.body.style.backgroundImage = "url('./greenBackground.jpg')";
@@ -250,7 +253,8 @@ class Welcome extends React.Component {
             document.getElementById("minutes-indicator").style.backgroundColor = "#00b300";
             document.getElementById("hours-indicator").style.backgroundColor = "#80ff80"; 
         }
-        this.saveChanges()
+
+        
     }
 
     changeFont(event, someParameter) {
@@ -258,16 +262,14 @@ class Welcome extends React.Component {
         document.getElementsByTagName("body")[0].style.fontFamily = someParameter;
         document.querySelectorAll('option').forEach(e => e.style.fontFamily = someParameter);
         this.setState({
-            settingsVisible: someParameter
-        });
-        this.saveChanges()
+            fontName: someParameter,
+        },  this.saveChanges);
     }
 
     changeLocation(event, someParameter) {
          this.setState({
              currentLocation: someParameter
-            });
-        this.saveChanges()
+            },  this.saveChanges);
     }
     changeLanguage(event, someParameter) {
      
@@ -279,8 +281,7 @@ class Welcome extends React.Component {
         this.setState({
             languageIcon: "url('./languages/tr.png')",
             language: someParameter
-        }); 
-        this.saveChanges()
+        },  this.saveChanges); 
     }
 
 
