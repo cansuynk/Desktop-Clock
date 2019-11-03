@@ -68,6 +68,7 @@ class News extends React.Component {
                             this.state.news.map((art, id) =>{ return (
                                 <tr className="popover popover-left" key={id}>
                                     <td style={{color: 'white'}}>{art.title}</td>
+                                    <a href={this.state.news[id].url} target="_blank">
                                     <div 
                                      onMouseEnter={() => {
                                         document.body.style.cursor = "pointer";
@@ -76,7 +77,7 @@ class News extends React.Component {
                                         document.body.style.cursor = "default";
                                       }}
                                     
-                                    onClick={this.handleClick(this.state.news[id].url)} class="popover-container" style={{backgroundColor: "white"}}>
+                                    class="popover-container" style={{backgroundColor: "white"}}>
                                     <div class="card-image">
                                         <img  src={this.state.news[id].urlToImage} class="img-responsive" />
                                         <div class="card-header">
@@ -88,6 +89,7 @@ class News extends React.Component {
                                         </div>
                                     </div>
                                     </div>
+                                    </a>
                                 </tr>
                             )})
                             }

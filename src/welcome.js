@@ -7,6 +7,7 @@ import News from "./components/news.js"
 import Todos from "./components/todo.js"
 import Weather from './components/weather';
 
+
 const default_state = {
             date: new Date(),
             day: 0,

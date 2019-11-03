@@ -15,6 +15,12 @@ class Todos extends React.Component {
         this.handleChange = this.handleChange.bind(this)
     }
 
+    save = () => {
+        var store_date = this.state.date.toLocaleString().substring(0,10)
+        var stored_obj = this.state.todos.map((todo) => ({"todo": todo, "date": store_date}))
+        window.localStorage.setItem("todos" + this.props.DayID.toString(), JSON.stringify(stored_obj))
+    }
+
     handleRemove(id) {
         return (
             () => {
@@ -22,7 +28,7 @@ class Todos extends React.Component {
                 array.splice(id, 1)
                 this.setState({
                     todos: array
-                })
+                }, this.save)
             }
         )
     }
@@ -41,7 +47,7 @@ class Todos extends React.Component {
         this.setState({
             text: "",
             todos: array
-        })
+        }, this.save)
     }
     
     componentDidMount() {
@@ -65,13 +71,7 @@ class Todos extends React.Component {
         
     }
     
-    componentWillUnmount() {
-        var store_date = this.state.date.toLocaleString().substring(0,10)
-        var stored_obj = this.state.todos.map((todo) => ({"todo": todo, "date": store_date}))
-        console.log(stored_obj)
-        window.localStorage.setItem("todos" + this.props.DayID.toString(), JSON.stringify(stored_obj))
-        
-    }
+    
 
     render() {
         return (
