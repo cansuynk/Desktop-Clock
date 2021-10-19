@@ -1,6 +1,34 @@
 ## Brochure
 Check brochure of the application -->  [Brochure](Brochure%20of%20the%20Application/README.md)
 
+## Explanation of the Application
+People with busy lives have many activities and plans. These people may have to take notes or use a variety of applications in order to remember their plans because in some cases, it may be difficult to remember or keep track of our activities during the day. This project will be developed to find solutions to this problem and make life easier for these people. The aim of this project is to create useful and different interfaces where users can follow their activities, periodic or non-periodic events, meetings, alarms, daily news and weather information. This allows users to save time/improve time management, and to see and follow their plans or news they want to know in one app.
+
+Our application will be a desktop application. We plan to design three or more interfaces. Users will have the freedom to choose the design they want. Each design will have its own unique layout and theme. The shapes, layouts and color intensities of the items may vary. We plan to make interfaces in the form of clock layout. With these clocks, users will be able to follow their weekly activities. We consider the following criteria while creating our application.
+
+1) User preference
+2) Integration to external services
+3) Ergonomy
+4) Periodic and non-periodic events
+5) RTC (Real Time Clock)
+6) User interface design (objective design options)
+
+## Screenshots from the application:
+# Home Page
+![home](Screenshots/home.png)
+
+# Change Theme or Location/Language
+![home](Screenshots/themeandlocation.png)
+
+# Read Daily News
+![home](Screenshots/news.png)
+
+# Weather Information
+![home](Screenshots/weather.png)
+
+# Todo List
+![home](Screenshots/todo.png)
+
 ## Important Links
 For deploying app & For using local storage
 * https://github.com/Urucas/electron-packager-interactive/blob/master/README.md
