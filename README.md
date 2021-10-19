@@ -14,19 +14,19 @@ Our application will be a desktop application. We plan to design three or more i
 6) User interface design (objective design options)
 
 ## Screenshots from the application:
-# Home Page
+### Home Page
 ![home](Screenshots/home.png)
 
-# Change Theme or Location/Language
+### Change Theme or Location/Language
 ![home](Screenshots/themeandlocation.png)
 
-# Read Daily News
+### Read Daily News
 ![home](Screenshots/news.png)
 
-# Weather Information
+### Weather Information
 ![home](Screenshots/weather.png)
 
-# Todo List
+### Todo List
 ![home](Screenshots/todo.png)
 
 ## Important Links
