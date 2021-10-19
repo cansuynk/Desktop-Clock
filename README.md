@@ -1,5 +1,5 @@
-### Brochure
-Check brochure of the application -->  [brochure](Brochure%20of%20the%20Application/README.md)
+## Brochure
+Check brochure of the application -->  [Brochure](Brochure%20of%20the%20Application/README.md)
 
 ## Important Links
 For deploying app & For using local storage
